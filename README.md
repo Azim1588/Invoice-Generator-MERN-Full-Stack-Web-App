@@ -6,6 +6,7 @@ A modern, full-stack invoice generation application built with React, Node.js, a
 ![React](https://img.shields.io/badge/React-18.2.0-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-blue)
+![Render](https://img.shields.io/badge/Deployed%20on-Render-blue)
 
 ## ✨ Features
 
@@ -17,6 +18,25 @@ A modern, full-stack invoice generation application built with React, Node.js, a
 - 🌙 **Dark Mode** - Toggle between light and dark themes
 - 📱 **Responsive Design** - Works on all devices
 - ⚡ **Real-time Updates** - Instant data synchronization
+
+## 🚀 Quick Deploy
+
+### Render Blueprint (Recommended)
+
+Deploy your entire application with one click using Render Blueprint:
+
+1. **Go to [Render.com](https://render.com)**
+2. **Click "New +" → "Blueprint"**
+3. **Connect your GitHub repository**
+4. **Click "Apply"**
+
+Render will automatically create:
+
+- **Database**: MongoDB instance
+- **Backend**: Node.js API service
+- **Frontend**: Static site
+
+See [RENDER_BLUEPRINT_DEPLOYMENT.md](./RENDER_BLUEPRINT_DEPLOYMENT.md) for detailed instructions.
 
 ## 🛠️ Tech Stack
 
@@ -65,7 +85,7 @@ npm install
 cp env.example .env
 
 # Edit .env with your configuration
-MONGODB_URI=your_mongodb_connection_string
+MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 PORT=5000
 NODE_ENV=development
@@ -81,7 +101,7 @@ npm install
 cp env.example .env
 
 # Edit .env with your backend URL
-VITE_API_URL=http://localhost:5000/api
+VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
 ## 🏃‍♂️ Running the Application
@@ -122,6 +142,23 @@ npm run build
 cd backend
 npm start
 ```
+
+## 🚀 Deployment
+
+### Render Blueprint (Recommended)
+
+- **One-click deployment** of all services
+- **Automatic environment variables**
+- **SSL certificates** included
+- **Continuous deployment** on push
+
+See [RENDER_BLUEPRINT_DEPLOYMENT.md](./RENDER_BLUEPRINT_DEPLOYMENT.md) for detailed instructions.
+
+### Manual Deployment
+
+- Deploy backend as Web Service
+- Deploy frontend as Static Site
+- Configure environment variables manually
 
 ## 📁 Project Structure
 
@@ -183,7 +220,10 @@ invoice-generator-pro/
 ├── .gitignore
 ├── README.md
 ├── CONTRIBUTING.md
-└── LICENSE
+├── LICENSE
+├── render.yaml
+├── RENDER_BLUEPRINT_DEPLOYMENT.md
+└── RENDER_BLUEPRINT_CHECKLIST.md
 ```
 
 ## 🔧 API Endpoints
@@ -284,6 +324,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [MongoDB](https://www.mongodb.com/) - Database
 - [Vite](https://vitejs.dev/) - Build tool
 - [Lucide React](https://lucide.dev/) - Icons
+- [Render](https://render.com/) - Hosting platform
 
 ## 📞 Support
 
@@ -291,7 +332,7 @@ If you have any questions or need help:
 
 - Create an issue on GitHub
 - Check the documentation
-- Review the code
+- Review the deployment guide
 
 ## 🎯 Roadmap
 
