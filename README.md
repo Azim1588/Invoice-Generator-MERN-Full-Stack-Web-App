@@ -6,6 +6,7 @@ A modern, full-stack invoice generation application built with React, Node.js, a
 ![React](https://img.shields.io/badge/React-18.2.0-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-blue)
+![Render](https://img.shields.io/badge/Deployed%20on-Render-blue)
 
 ## ✨ Features
 
@@ -56,8 +57,8 @@ A modern, full-stack invoice generation application built with React, Node.js, a
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/invoice-generator-pro.git
-cd invoice-generator-pro
+git clone https://github.com/Azim1588/Invoice-Generator-MERN-Full-Stack-Web-App.git
+cd Invoice-Generator-MERN-Full-Stack-Web-App
 ```
 
 ### Backend Setup
@@ -67,7 +68,7 @@ cd backend
 npm install
 
 # Create environment file
-cp .env.example .env
+cp env.example .env
 
 # Edit .env with your configuration
 MONGODB_URI=your_mongodb_connection_string
@@ -83,7 +84,7 @@ cd frontend
 npm install
 
 # Create environment file
-cp .env.example .env
+cp env.example .env
 
 # Edit .env with your backend URL
 VITE_API_URL=http://localhost:5000/api
@@ -127,6 +128,16 @@ npm run build
 cd backend
 npm start
 ```
+
+## 🚀 Deployment
+
+See [RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md) for detailed deployment instructions.
+
+### Quick Deploy Options:
+
+- **Render Blueprint** (Recommended) - Automatic full-stack deployment
+- **Render Manual** - Deploy services individually
+- **MongoDB Atlas** - Database hosting
 
 ## 📁 Project Structure
 
@@ -187,7 +198,10 @@ invoice-generator-pro/
 │   └── package.json
 ├── .gitignore
 ├── README.md
-└── DEPLOYMENT.md
+├── RENDER_DEPLOYMENT.md
+├── RENDER_CHECKLIST.md
+├── render.yaml
+└── deploy-render.bat
 ```
 
 ## 🔧 API Endpoints
@@ -271,13 +285,13 @@ invoice-generator-pro/
 
 ## 🚀 Deployment
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+See [RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md) for detailed deployment instructions.
 
 ### Quick Deploy Options:
 
-- **Render** (Backend) + **Netlify** (Frontend)
-- **Railway** (Full-stack)
-- **Heroku** (Backend) + **Vercel** (Frontend)
+- **Render Blueprint** (Recommended) - Automatic full-stack deployment
+- **Render Manual** - Deploy services individually
+- **MongoDB Atlas** - Database hosting
 
 ## 🤝 Contributing
 
@@ -298,6 +312,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [MongoDB](https://www.mongodb.com/) - Database
 - [Vite](https://vitejs.dev/) - Build tool
 - [Lucide React](https://lucide.dev/) - Icons
+- [Render](https://render.com/) - Hosting platform
 
 ## 📞 Support
 
