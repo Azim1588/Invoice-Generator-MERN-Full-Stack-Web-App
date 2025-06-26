@@ -177,9 +177,15 @@ Render automatically deploys when you push to your main branch:
    - Ensure CORS is configured
 
 3. **Database Connection Issues:**
+
    - Check MongoDB connection string
    - Verify network access
    - Check database credentials
+
+4. **Root Directory Issues:**
+   - **Error**: "Service Root Directory is missing"
+   - **Solution**: Use manual deployment instead of Blueprint
+   - **Alternative**: Try the `render-simple.yaml` configuration
 
 ### Debug Commands:
 
@@ -190,6 +196,38 @@ Render automatically deploys when you push to your main branch:
 # Check environment variables
 # Go to Render dashboard → Your service → Environment
 ```
+
+### Root Directory Issue Fix:
+
+If you encounter the "Service Root Directory is missing" error:
+
+1. **Use Manual Deployment Instead:**
+
+   - Go to Render dashboard
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repository
+   - Set Root Directory to `backend`
+   - Set Build Command to `npm install`
+   - Set Start Command to `npm start`
+
+2. **Alternative Configuration:**
+
+   - Use `render-simple.yaml` instead of `render.yaml`
+   - This configuration uses `cd` commands instead of `rootDir`
+
+3. **Verify Repository Structure:**
+   ```
+   your-repo/
+   ├── backend/
+   │   ├── package.json
+   │   ├── app.js
+   │   └── ...
+   ├── frontend/
+   │   ├── package.json
+   │   ├── src/
+   │   └── ...
+   └── render.yaml
+   ```
 
 ## 📊 Monitoring & Analytics
 
