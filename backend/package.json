@@ -1,0 +1,36 @@
+{
+  "name": "invoice-generator-backend",
+  "version": "1.0.0",
+  "description": "Backend for Invoice Generator Web App",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "migrate": "node scripts/migrateData.js"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.18.2",
+    "express-validator": "^7.2.1",
+    "form-data": "^4.0.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^8.16.0",
+    "multer": "^2.0.1",
+    "pdfkit": "^0.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "invoice",
+    "generator",
+    "express",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "+1-555-0123",
+    "address": {
+      "street": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "USA"
+    },
+    "createdAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": "2",
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "phone": "+1-555-0456",
+    "address": {
+      "street": "456 Oak Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zipCode": "90210",
+      "country": "USA"
+    },
+    "createdAt": "2024-01-16T14:20:00Z"
+  },
+  {
+    "id": "3",
+    "name": "Bob Johnson",
+    "email": "bob.johnson@techcorp.com",
+    "phone": "+1-555-0789",
+    "address": {
+      "street": "789 Tech Blvd",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94105",
+      "country": "USA"
+    },
+    "createdAt": "2024-01-17T09:15:00Z"
+  },
+  {
+    "id": "4",
+    "name": "Alice Brown",
+    "email": "alice.brown@designstudio.com",
+    "phone": "+1-555-0321",
+    "address": {
+      "street": "321 Creative Lane",
+      "city": "Austin",
+      "state": "TX",
+      "zipCode": "73301",
+      "country": "USA"
+    },
+    "createdAt": "2024-01-18T16:45:00Z"
+  },
+  {
+    "id": "5",
+    "name": "Mike Wilson",
+    "email": "mike.wilson@consulting.com",
+    "phone": "+1-555-0654",
+    "address": {
+      "street": "654 Business Park",
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60601",
+      "country": "USA"
+    },
+    "createdAt": "2024-01-19T11:30:00Z"
+  },
+  {
+    "id": "433f9298-bead-4cbd-95fa-4093f8557b1d",
+    "name": "Azim Khamis",
+    "email": "main@nkc.org",
+    "phone": "",
+    "address": {
+      "street": "123 main St ",
+      "city": "kc",
+      "state": "",
+      "zipCode": "",
+      "country": ""
+    },
+    "createdAt": "2025-06-23T23:15:16.700Z"
+  }
+]

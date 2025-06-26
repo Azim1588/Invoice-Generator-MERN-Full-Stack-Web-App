@@ -1,0 +1,168 @@
+[
+  {
+    "id": "1",
+    "invoiceNumber": "INV-2024-001",
+    "customerId": "1",
+    "customerName": "John Doe",
+    "date": "2024-01-20",
+    "dueDate": "2024-02-20",
+    "status": "pending",
+    "items": [
+      {
+        "id": "1",
+        "description": "Web Development Services",
+        "quantity": 1,
+        "unitPrice": 1500,
+        "total": 1500
+      },
+      {
+        "id": "2",
+        "description": "UI/UX Design",
+        "quantity": 1,
+        "unitPrice": 800,
+        "total": 800
+      }
+    ],
+    "subtotal": 2300,
+    "tax": 230,
+    "total": 2530,
+    "notes": "Thank you for your business!",
+    "createdAt": "2024-01-20T09:00:00Z"
+  },
+  {
+    "id": "2",
+    "invoiceNumber": "INV-2024-002",
+    "customerId": "2",
+    "customerName": "Jane Smith",
+    "date": "2024-01-22",
+    "dueDate": "2024-02-22",
+    "status": "paid",
+    "items": [
+      {
+        "id": "1",
+        "description": "Consulting Services",
+        "quantity": 10,
+        "unitPrice": 100,
+        "total": 1000
+      }
+    ],
+    "subtotal": 1000,
+    "tax": 100,
+    "total": 1100,
+    "notes": "Payment received. Thank you!",
+    "createdAt": "2024-01-22T11:30:00Z"
+  },
+  {
+    "id": "3",
+    "invoiceNumber": "INV-2024-003",
+    "customerId": "3",
+    "customerName": "Bob Johnson",
+    "date": "2024-01-25",
+    "dueDate": "2024-02-25",
+    "status": "paid",
+    "items": [
+      {
+        "id": "1",
+        "description": "Software Development",
+        "quantity": 1,
+        "unitPrice": 2500,
+        "total": 2500
+      },
+      {
+        "id": "2",
+        "description": "Database Setup",
+        "quantity": 1,
+        "unitPrice": 500,
+        "total": 500
+      },
+      {
+        "id": "3",
+        "description": "Testing & QA",
+        "quantity": 1,
+        "unitPrice": 300,
+        "total": 300
+      }
+    ],
+    "subtotal": 3300,
+    "tax": 330,
+    "total": 3630,
+    "notes": "Project completed successfully!",
+    "createdAt": "2024-01-25T14:20:00Z"
+  },
+  {
+    "id": "4",
+    "invoiceNumber": "INV-2024-004",
+    "customerId": "4",
+    "customerName": "Alice Brown",
+    "date": "2024-01-28",
+    "dueDate": "2024-02-28",
+    "status": "pending",
+    "items": [
+      {
+        "id": "1",
+        "description": "Logo Design",
+        "quantity": 1,
+        "unitPrice": 400,
+        "total": 400
+      },
+      {
+        "id": "2",
+        "description": "Brand Guidelines",
+        "quantity": 1,
+        "unitPrice": 600,
+        "total": 600
+      }
+    ],
+    "subtotal": 1000,
+    "tax": 100,
+    "total": 1100,
+    "notes": "Design work in progress",
+    "createdAt": "2024-01-28T10:15:00Z"
+  },
+  {
+    "id": "5",
+    "invoiceNumber": "INV-2024-005",
+    "customerId": "5",
+    "customerName": "Mike Wilson",
+    "date": "2024-01-30",
+    "dueDate": "2024-02-15",
+    "status": "overdue",
+    "items": [
+      {
+        "id": "1",
+        "description": "Business Strategy Consulting",
+        "quantity": 20,
+        "unitPrice": 150,
+        "total": 3000
+      }
+    ],
+    "subtotal": 3000,
+    "tax": 300,
+    "total": 3300,
+    "notes": "Please contact regarding payment",
+    "createdAt": "2024-01-30T16:45:00Z"
+  },
+  {
+    "id": "c8a98a92-53ac-404a-80a0-7beba82a612a",
+    "invoiceNumber": "INV-2025-001",
+    "customerId": "433f9298-bead-4cbd-95fa-4093f8557b1d",
+    "customerName": "Azim Khamis",
+    "date": "2025-06-24",
+    "dueDate": "2025-07-24",
+    "status": "pending",
+    "items": [
+      {
+        "description": "food supply",
+        "quantity": 1,
+        "unitPrice": 300,
+        "id": "73e498d0-3773-4007-ac0f-9a4b669b7fb0",
+        "total": 300
+      }
+    ],
+    "subtotal": 300,
+    "tax": 30,
+    "total": 330,
+    "notes": "",
+    "createdAt": "2025-06-24T02:10:45.911Z"
+  }
+]
