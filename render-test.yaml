@@ -5,13 +5,23 @@ databases:
     plan: free
 
 services:
-  # Backend API Service
+  # Backend API Service - Test with different path approaches
   - type: web
-    name: invoice-backend
+    name: invoice-backend-test
     env: node
     plan: free
-    buildCommand: cd backend && npm install --production
+    # Option 1: Relative path (current working approach)
+    buildCommand: cd backend && npm install
     startCommand: cd backend && npm start
+
+    # Option 2: Absolute path (alternative)
+    # buildCommand: cd /opt/render/project/src/backend && npm install
+    # startCommand: cd /opt/render/project/src/backend && npm start
+
+    # Option 3: Using ./ (alternative)
+    # buildCommand: cd ./backend && npm install
+    # startCommand: cd ./backend && npm start
+
     envVars:
       - key: NODE_ENV
         value: production
@@ -28,14 +38,14 @@ services:
 
   # Frontend Service
   - type: web
-    name: invoice-frontend
+    name: invoice-frontend-test
     env: static
     plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
     envVars:
       - key: VITE_API_URL
-        value: https://invoice-backend.onrender.com/api
+        value: https://invoice-backend-test.onrender.com/api
     routes:
       - type: rewrite
         source: /*

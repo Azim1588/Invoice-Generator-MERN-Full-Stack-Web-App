@@ -57,9 +57,11 @@ Root Directory: (leave empty)
 **Build & Deploy Settings:**
 
 ```
-Build Command: cd backend && npm install
+Build Command: cd backend && npm install --production
 Start Command: cd backend && npm start
 ```
+
+**Important:** Use `npm install --production` to avoid yarn conflicts and only install production dependencies.
 
 ### 2.3 Add Environment Variables
 
@@ -171,15 +173,27 @@ Visit your frontend URL to test:
 
 **Solution:** Use manual deployment (this guide) instead of Blueprint
 
-#### 2. Build Failures
+#### 2. "Couldn't find a package.json file" / Yarn vs Npm Issues
+
+**Error:** `yarn run v1.22.22 error Couldn't find a package.json file in "/opt/render/project/src"`
+
+**Solutions:**
+
+- **Use explicit npm commands:** `cd backend && npm install --production`
+- **Force npm usage:** Add `--production` flag to avoid yarn conflicts
+- **Check package.json location:** Ensure it's in the backend directory
+- **Use manual deployment:** This gives you full control over package manager
+
+#### 3. Build Failures
 
 **Check:**
 
 - All dependencies are in `package.json`
 - Build commands are correct
 - Environment variables are set
+- Using `npm` instead of `yarn`
 
-#### 3. API Connection Issues
+#### 4. API Connection Issues
 
 **Check:**
 
@@ -187,7 +201,7 @@ Visit your frontend URL to test:
 - Backend is running
 - CORS is configured
 
-#### 4. Database Connection Issues
+#### 5. Database Connection Issues
 
 **Check:**
 
@@ -195,7 +209,7 @@ Visit your frontend URL to test:
 - Network access is configured (0.0.0.0/0)
 - Database user credentials are correct
 
-#### 5. Environment Variables Not Working
+#### 6. Environment Variables Not Working
 
 **Check:**
 
@@ -218,9 +232,14 @@ Visit your frontend URL to test:
    ```
 
 3. **Check Environment Variables:**
+
    - Go to service dashboard
    - Click "Environment" tab
    - Verify all variables are set
+
+4. **Verify Package Manager:**
+   - Check if Render is using yarn or npm
+   - Use explicit npm commands to avoid conflicts
 
 ## 🔄 Continuous Deployment
 

@@ -5,13 +5,19 @@ databases:
     plan: free
 
 services:
-  # Backend API Service
+  # Backend API Service - Fixed configuration
   - type: web
     name: invoice-backend
     env: node
     plan: free
-    buildCommand: cd backend && npm install --production
-    startCommand: cd backend && npm start
+    # Use explicit npm commands and ensure we're in the right directory
+    buildCommand: |
+      cd backend
+      npm install --production
+      echo "Backend build completed"
+    startCommand: |
+      cd backend
+      npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -26,12 +32,16 @@ services:
       - key: FRONTEND_URL
         value: https://invoice-frontend.onrender.com
 
-  # Frontend Service
+  # Frontend Service - Fixed configuration
   - type: web
     name: invoice-frontend
     env: static
     plan: free
-    buildCommand: cd frontend && npm install && npm run build
+    buildCommand: |
+      cd frontend
+      npm install
+      npm run build
+      echo "Frontend build completed"
     staticPublishPath: frontend/dist
     envVars:
       - key: VITE_API_URL
