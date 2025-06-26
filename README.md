@@ -6,7 +6,6 @@ A modern, full-stack invoice generation application built with React, Node.js, a
 ![React](https://img.shields.io/badge/React-18.2.0-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-blue)
-![Render](https://img.shields.io/badge/Deployed%20on-Render-blue)
 
 ## ✨ Features
 
@@ -18,11 +17,6 @@ A modern, full-stack invoice generation application built with React, Node.js, a
 - 🌙 **Dark Mode** - Toggle between light and dark themes
 - 📱 **Responsive Design** - Works on all devices
 - ⚡ **Real-time Updates** - Instant data synchronization
-
-## 🚀 Live Demo
-
-- **Frontend:** [Coming Soon]
-- **Backend API:** [Coming Soon]
 
 ## 🛠️ Tech Stack
 
@@ -129,16 +123,6 @@ cd backend
 npm start
 ```
 
-## 🚀 Deployment
-
-See [RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md) for detailed deployment instructions.
-
-### Quick Deploy Options:
-
-- **Render Blueprint** (Recommended) - Automatic full-stack deployment
-- **Render Manual** - Deploy services individually
-- **MongoDB Atlas** - Database hosting
-
 ## 📁 Project Structure
 
 ```
@@ -198,10 +182,8 @@ invoice-generator-pro/
 │   └── package.json
 ├── .gitignore
 ├── README.md
-├── RENDER_DEPLOYMENT.md
-├── RENDER_CHECKLIST.md
-├── render.yaml
-└── deploy-render.bat
+├── CONTRIBUTING.md
+└── LICENSE
 ```
 
 ## 🔧 API Endpoints
@@ -283,16 +265,6 @@ invoice-generator-pro/
 - Touch-friendly interface
 - Cross-browser compatibility
 
-## 🚀 Deployment
-
-See [RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md) for detailed deployment instructions.
-
-### Quick Deploy Options:
-
-- **Render Blueprint** (Recommended) - Automatic full-stack deployment
-- **Render Manual** - Deploy services individually
-- **MongoDB Atlas** - Database hosting
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -312,7 +284,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [MongoDB](https://www.mongodb.com/) - Database
 - [Vite](https://vitejs.dev/) - Build tool
 - [Lucide React](https://lucide.dev/) - Icons
-- [Render](https://render.com/) - Hosting platform
 
 ## 📞 Support
 
@@ -320,7 +291,7 @@ If you have any questions or need help:
 
 - Create an issue on GitHub
 - Check the documentation
-- Review the deployment guide
+- Review the code
 
 ## 🎯 Roadmap
 
