@@ -59,7 +59,7 @@ function AppContent() {
           <button 
             className="mobile-menu-toggle" 
             onClick={toggleSidebar}
-            style={{ display: 'none' }}
+            aria-label="Toggle navigation menu"
           >
             <Menu size={20} />
           </button>
@@ -74,13 +74,13 @@ function AppContent() {
           <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
             <div className="sidebar-header">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Link to="/dashboard" className="sidebar-brand">
+                <Link to="/dashboard" className="sidebar-brand" onClick={closeSidebar}>
                   Invoice Generator
                 </Link>
                 <button 
                   className="close-btn"
                   onClick={closeSidebar}
-                  style={{ display: 'none' }}
+                  aria-label="Close navigation menu"
                 >
                   <X size={16} />
                 </button>

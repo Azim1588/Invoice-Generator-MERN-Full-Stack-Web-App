@@ -20,13 +20,16 @@ import {
   CreditCard,
   Globe,
   Smartphone,
-  Mail
+  Mail,
+  Menu,
+  X
 } from 'lucide-react';
 
 const LandingPage = () => {
   const [currentFeature, setCurrentFeature] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [showVideoModal, setShowVideoModal] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isDarkMode } = useTheme();
 
   useEffect(() => {
@@ -36,6 +39,14 @@ const LandingPage = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   const features = [
     {
@@ -81,9 +92,20 @@ const LandingPage = () => {
             </div>
             <span>InvoicePro</span>
           </div>
-          <div className="nav-actions">
-            <Link to="/login" className="nav-link">Sign In</Link>
-            <Link to="/register" className="btn btn-primary">Get Started</Link>
+          
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="mobile-nav-toggle"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile navigation"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          {/* Desktop Navigation */}
+          <div className={`nav-actions ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+            <Link to="/login" className="nav-link" onClick={closeMobileMenu}>Sign In</Link>
+            <Link to="/register" className="btn btn-primary" onClick={closeMobileMenu}>Get Started</Link>
           </div>
         </div>
       </nav>
