@@ -48,104 +48,167 @@ function Customers() {
     <div>
       <div className="page-header">
         <h1 className="page-title">Customers</h1>
-        <Link to="/customers/create" className="btn btn-primary">
-          <Plus size={16} />
-          Add Customer
-        </Link>
+        <div className="page-actions">
+          <Link to="/customers/create" className="btn btn-primary">
+            <Plus size={16} />
+            Add Customer
+          </Link>
+        </div>
       </div>
 
       {error && <div className="error">{error}</div>}
 
       {customers.length === 0 ? (
         <div className="card">
-          <p style={{ color: '#6b7280', textAlign: 'center', padding: '2rem' }}>
-            No customers found. <Link to="/customers/create" className="btn btn-primary" style={{ marginLeft: '0.5rem' }}>Add your first customer</Link>
-          </p>
+          <div className="empty-state">
+            <p className="empty-state-message">
+              No customers found. <Link to="/customers/create" className="btn btn-primary">Add your first customer</Link>
+            </p>
+          </div>
         </div>
       ) : (
         <div className="card">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Address</th>
-                <th>Created</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {customers.map((customer) => (
-                <tr key={customer._id}>
-                  <td>
-                    <strong>{customer.name}</strong>
-                  </td>
-                  <td>{customer.email}</td>
-                  <td>{customer.phone || '-'}</td>
-                  <td>
+          {/* Desktop Table View */}
+          <div className="table-container desktop-table">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Address</th>
+                  <th>Created</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {customers.map((customer) => (
+                  <tr key={customer._id}>
+                    <td>
+                      <strong>{customer.name}</strong>
+                    </td>
+                    <td>{customer.email}</td>
+                    <td>{customer.phone || '-'}</td>
+                    <td>
+                      {customer.address ? (
+                        <div>
+                          <div>{customer.address.street}</div>
+                          <div style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
+                            {customer.address.city}, {customer.address.state} {customer.address.zipCode}
+                          </div>
+                        </div>
+                      ) : (
+                        '-'
+                      )}
+                    </td>
+                    <td>{new Date(customer.createdAt).toLocaleDateString()}</td>
+                    <td className="table-actions">
+                      <Link 
+                        to={`/customers/${customer._id}`} 
+                        className="btn btn-secondary"
+                      >
+                        <Eye size={14} />
+                        View
+                      </Link>
+                      <Link 
+                        to={`/customers/${customer._id}/edit`} 
+                        className="btn btn-secondary"
+                      >
+                        <Edit size={14} />
+                        Edit
+                      </Link>
+                      <button
+                        onClick={() => setDeleteId(customer._id)}
+                        className="btn btn-danger"
+                      >
+                        <Trash2 size={14} />
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile Card View */}
+          <div className="mobile-table">
+            {customers.map((customer) => (
+              <div key={customer._id} className="mobile-card">
+                <div className="mobile-card-row">
+                  <span className="mobile-card-label">Name</span>
+                  <span className="mobile-card-value">{customer.name}</span>
+                </div>
+                <div className="mobile-card-row">
+                  <span className="mobile-card-label">Email</span>
+                  <span className="mobile-card-value">{customer.email}</span>
+                </div>
+                <div className="mobile-card-row">
+                  <span className="mobile-card-label">Phone</span>
+                  <span className="mobile-card-value">{customer.phone || '-'}</span>
+                </div>
+                <div className="mobile-card-row">
+                  <span className="mobile-card-label">Address</span>
+                  <span className="mobile-card-value">
                     {customer.address ? (
                       <div>
                         <div>{customer.address.street}</div>
-                        <div style={{ color: '#6b7280', fontSize: '0.875rem' }}>
+                        <div style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
                           {customer.address.city}, {customer.address.state} {customer.address.zipCode}
                         </div>
                       </div>
                     ) : (
                       '-'
                     )}
-                  </td>
-                  <td>{new Date(customer.createdAt).toLocaleDateString()}</td>
-                  <td>
-                    <div style={{ display: 'flex', gap: '0.5rem' }}>
-                      <Link 
-                        to={`/customers/${customer._id}`} 
-                        className="btn btn-secondary"
-                        style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem' }}
-                      >
-                        <Eye size={14} />
-                      </Link>
-                      <Link 
-                        to={`/customers/${customer._id}/edit`} 
-                        className="btn btn-secondary"
-                        style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem' }}
-                      >
-                        <Edit size={14} />
-                      </Link>
-                      <button
-                        onClick={() => setDeleteId(customer._id)}
-                        className="btn btn-danger"
-                        style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem' }}
-                      >
-                        <Trash2 size={14} />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  </span>
+                </div>
+                <div className="mobile-card-row">
+                  <span className="mobile-card-label">Created</span>
+                  <span className="mobile-card-value">{new Date(customer.createdAt).toLocaleDateString()}</span>
+                </div>
+                <div className="mobile-card-row">
+                  <span className="mobile-card-label">Actions</span>
+                  <div className="card-actions">
+                    <Link 
+                      to={`/customers/${customer._id}`} 
+                      className="btn btn-secondary"
+                    >
+                      <Eye size={14} />
+                      View
+                    </Link>
+                    <Link 
+                      to={`/customers/${customer._id}/edit`} 
+                      className="btn btn-secondary"
+                    >
+                      <Edit size={14} />
+                      Edit
+                    </Link>
+                    <button
+                      onClick={() => setDeleteId(customer._id)}
+                      className="btn btn-danger"
+                    >
+                      <Trash2 size={14} />
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
       {/* Delete Confirmation Modal */}
       {deleteId && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(0, 0, 0, 0.5)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000
-        }}>
-          <div className="card" style={{ maxWidth: '400px', margin: '1rem' }}>
-            <h3>Confirm Delete</h3>
-            <p>Are you sure you want to delete this customer? This action cannot be undone.</p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+        <div className="modal-overlay">
+          <div className="modal">
+            <div className="modal-header">
+              <h3 className="modal-title">Confirm Delete</h3>
+            </div>
+            <div className="modal-body">
+              <p>Are you sure you want to delete this customer? This action cannot be undone.</p>
+            </div>
+            <div className="modal-footer">
               <button
                 onClick={() => setDeleteId(null)}
                 className="btn btn-secondary"

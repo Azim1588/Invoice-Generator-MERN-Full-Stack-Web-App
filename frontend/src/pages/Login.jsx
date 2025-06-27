@@ -69,78 +69,41 @@ function Login() {
   };
 
   return (
-    <div style={{ 
-      minHeight: '100vh', 
-      display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center',
-      background: 'var(--bg-secondary)',
-      padding: '1rem'
-    }}>
-      <div className="card" style={{ maxWidth: '450px', width: '100%' }}>
+    <div className="auth-container">
+      <div className="card auth-card">
         {/* Back to Landing Page */}
-        <div style={{ marginBottom: '1.5rem' }}>
-          <Link 
-            to="/" 
-            style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '0.5rem',
-              color: 'var(--text-secondary)',
-              textDecoration: 'none',
-              fontSize: '0.875rem'
-            }}
-          >
+        <div className="auth-back-link">
+          <Link to="/" className="back-link">
             <ArrowLeft size={16} />
             Back to Home
           </Link>
         </div>
 
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <h1 style={{ 
-            fontSize: '2rem', 
-            fontWeight: '700', 
-            color: 'var(--text-primary)',
-            marginBottom: '0.5rem'
-          }}>
-            Welcome Back
-          </h1>
-          <p style={{ color: 'var(--text-secondary)' }}>
-            Sign in to your account to continue
-          </p>
+        <div className="auth-header">
+          <h1 className="auth-title">Welcome Back</h1>
+          <p className="auth-subtitle">Sign in to your account to continue</p>
         </div>
 
         {/* Demo Account Section */}
-        <div style={{ 
-          background: 'var(--bg-tertiary)', 
-          border: '1px solid var(--primary)', 
-          borderRadius: '0.5rem',
-          padding: '1rem',
-          marginBottom: '1.5rem'
-        }}>
-          <h3 style={{ 
-            fontSize: '1rem', 
-            fontWeight: '600', 
-            color: 'var(--text-primary)',
-            marginBottom: '0.5rem'
-          }}>
-            🚀 Demo Account
-          </h3>
-          <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '0.75rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+        <div className="demo-account-section">
+          <h3 className="demo-title">🚀 Demo Account</h3>
+          <div className="demo-credentials">
+            <div className="credential-row">
               <strong>Email:</strong> demo@example.com
               <button
                 onClick={() => copyToClipboard('demo@example.com')}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--primary)' }}
+                className="copy-btn"
+                aria-label="Copy email"
               >
                 <Copy size={14} />
               </button>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div className="credential-row">
               <strong>Password:</strong> password
               <button
                 onClick={() => copyToClipboard('password')}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--primary)' }}
+                className="copy-btn"
+                aria-label="Copy password"
               >
                 <Copy size={14} />
               </button>
@@ -148,8 +111,7 @@ function Login() {
           </div>
           <button
             onClick={fillDemoAccount}
-            className="btn btn-primary"
-            style={{ width: '100%', fontSize: '0.875rem', padding: '0.5rem' }}
+            className="btn btn-primary demo-btn"
           >
             Use Demo Account
           </button>
@@ -157,8 +119,8 @@ function Login() {
 
         {error && <div className="error">{error}</div>}
 
-        <form onSubmit={handleSubmit}>
-          <div>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="form-group">
             <label>Email</label>
             <input
               type="email"
@@ -170,9 +132,9 @@ function Login() {
             />
           </div>
 
-          <div>
+          <div className="form-group">
             <label>Password</label>
-            <div style={{ position: 'relative' }}>
+            <div className="password-input-container">
               <input
                 type={showPassword ? 'text' : 'password'}
                 name="password"
@@ -180,22 +142,13 @@ function Login() {
                 onChange={handleChange}
                 placeholder="Enter your password"
                 required
-                style={{ paddingRight: '3rem' }}
+                className="password-input"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                style={{
-                  position: 'absolute',
-                  right: '0.75rem',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  color: 'var(--text-secondary)',
-                  padding: '0.25rem'
-                }}
+                className="password-toggle"
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
@@ -204,30 +157,17 @@ function Login() {
 
           <button
             type="submit"
-            className="btn btn-primary"
-            style={{ width: '100%', marginTop: '1rem' }}
+            className="btn btn-primary btn-large"
             disabled={loading}
           >
-            {loading ? 'Signing In...' : (
-              <>
-                <LogIn size={16} />
-                Sign In
-              </>
-            )}
+            {loading ? 'Signing In...' : 'Sign In'}
           </button>
         </form>
 
-        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
+        <div className="auth-footer">
+          <p className="auth-footer-text">
             Don't have an account?{' '}
-            <Link 
-              to="/register" 
-              style={{ 
-                color: 'var(--primary)', 
-                textDecoration: 'none',
-                fontWeight: '500'
-              }}
-            >
+            <Link to="/register" className="auth-link">
               Sign up here
             </Link>
           </p>

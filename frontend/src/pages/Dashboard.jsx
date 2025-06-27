@@ -138,43 +138,43 @@ function Dashboard() {
       </div>
 
       {/* Stats Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
-        <div className="card">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <Users size={24} style={{ color: 'var(--primary)' }} />
+      <div className="stats-grid">
+        <div className="card stat-card">
+          <div className="stat-content">
+            <Users size={24} className="stat-icon" style={{ color: 'var(--primary)' }} />
             <div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', margin: 0, color: 'var(--text-primary)' }}>{stats.totalCustomers}</h3>
-              <p style={{ color: 'var(--text-secondary)', margin: 0 }}>Total Customers</p>
+              <h3 className="stat-number">{stats.totalCustomers}</h3>
+              <p className="stat-label">Total Customers</p>
             </div>
           </div>
         </div>
 
-        <div className="card">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <FileText size={24} style={{ color: 'var(--success)' }} />
+        <div className="card stat-card">
+          <div className="stat-content">
+            <FileText size={24} className="stat-icon" style={{ color: 'var(--success)' }} />
             <div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', margin: 0, color: 'var(--text-primary)' }}>{stats.totalInvoices}</h3>
-              <p style={{ color: 'var(--text-secondary)', margin: 0 }}>Total Invoices</p>
+              <h3 className="stat-number">{stats.totalInvoices}</h3>
+              <p className="stat-label">Total Invoices</p>
             </div>
           </div>
         </div>
 
-        <div className="card">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <DollarSign size={24} style={{ color: 'var(--text-primary)' }} />
+        <div className="card stat-card">
+          <div className="stat-content">
+            <DollarSign size={24} className="stat-icon" style={{ color: 'var(--text-primary)' }} />
             <div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', margin: 0, color: 'var(--text-primary)' }}>${stats.totalRevenue.toFixed(2)}</h3>
-              <p style={{ color: 'var(--text-secondary)', margin: 0 }}>Total Revenue</p>
+              <h3 className="stat-number">${stats.totalRevenue.toFixed(2)}</h3>
+              <p className="stat-label">Total Revenue</p>
             </div>
           </div>
         </div>
 
-        <div className="card">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <TrendingUp size={24} style={{ color: 'var(--warning)' }} />
+        <div className="card stat-card">
+          <div className="stat-content">
+            <TrendingUp size={24} className="stat-icon" style={{ color: 'var(--warning)' }} />
             <div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', margin: 0, color: 'var(--text-primary)' }}>{stats.pendingInvoices}</h3>
-              <p style={{ color: 'var(--text-secondary)', margin: 0 }}>Pending Invoices</p>
+              <h3 className="stat-number">{stats.pendingInvoices}</h3>
+              <p className="stat-label">Pending Invoices</p>
             </div>
           </div>
         </div>
@@ -182,96 +182,76 @@ function Dashboard() {
 
       {/* Recent Invoices */}
       <div className="card">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-          <h2 style={{ margin: 0, color: 'var(--text-primary)' }}>Recent Invoices</h2>
+        <div className="card-header">
+          <h2 className="card-title">Recent Invoices</h2>
           <Link to="/invoices" className="btn btn-primary">
             View All
           </Link>
         </div>
 
         {recentInvoices.length === 0 ? (
-          <p style={{ color: 'var(--text-secondary)', textAlign: 'center', padding: '2rem' }}>
-            No invoices found. <Link to="/invoices/create" className="btn btn-primary" style={{ marginLeft: '0.5rem' }}>Create your first invoice</Link>
-          </p>
+          <div className="empty-state">
+            <p className="empty-state-message">
+              No invoices found. <Link to="/invoices/create" className="btn btn-primary">Create your first invoice</Link>
+            </p>
+          </div>
         ) : (
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Invoice #</th>
-                <th>Customer</th>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recentInvoices.map((invoice) => (
-                <tr key={invoice._id}>
-                  <td>{invoice.invoiceNumber}</td>
-                  <td>{invoice.customerName}</td>
-                  <td>{new Date(invoice.date).toLocaleDateString()}</td>
-                  <td>${invoice.total.toFixed(2)}</td>
-                  <td>
-                    <div style={{ position: 'relative', display: 'inline-block' }}>
-                      <select
-                        value={invoice.status}
-                        onChange={(e) => handleStatusUpdate(invoice._id, e.target.value)}
-                        disabled={updatingStatus === invoice._id}
-                        style={{
-                          padding: '0.25rem 0.5rem',
-                          borderRadius: '0.25rem',
-                          border: '1px solid var(--border-color)',
-                          backgroundColor: 'var(--bg-primary)',
-                          color: getStatusColor(invoice.status),
-                          fontSize: '0.75rem',
-                          fontWeight: '500',
-                          cursor: 'pointer',
-                          appearance: 'none',
-                          paddingRight: '1.5rem'
+          <div className="table-container">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Invoice #</th>
+                  <th>Customer</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentInvoices.map((invoice) => (
+                  <tr key={invoice._id}>
+                    <td>{invoice.invoiceNumber}</td>
+                    <td>{invoice.customer?.name || 'N/A'}</td>
+                    <td>${invoice.total.toFixed(2)}</td>
+                    <td>
+                      <span 
+                        className="status-badge"
+                        style={{ 
+                          backgroundColor: getStatusColor(invoice.status),
+                          color: 'white'
                         }}
                       >
-                        <option value="pending">Pending</option>
-                        <option value="paid">Paid</option>
-                        <option value="overdue">Overdue</option>
-                      </select>
-                      <ChevronDown 
-                        size={12} 
-                        style={{ 
-                          position: 'absolute', 
-                          right: '0.25rem', 
-                          top: '50%', 
-                          transform: 'translateY(-50%)',
-                          pointerEvents: 'none',
-                          color: 'var(--text-secondary)'
-                        }} 
-                      />
-                    </div>
-                  </td>
-                  <td>
-                    <div style={{ display: 'flex', gap: '0.5rem' }}>
-                      <Link 
-                        to={`/invoices/${invoice._id}`} 
-                        className="btn btn-secondary"
-                        style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem' }}
-                      >
-                        <FileText size={14} />
+                        {invoice.status}
+                      </span>
+                    </td>
+                    <td>{new Date(invoice.createdAt).toLocaleDateString()}</td>
+                    <td className="table-actions">
+                      <Link to={`/invoices/${invoice._id}`} className="btn btn-secondary">
+                        View
                       </Link>
                       <button
                         onClick={() => handleDownloadPDF(invoice)}
-                        className="btn btn-success"
-                        style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem' }}
                         disabled={downloadingPDF === invoice._id}
-                        title="Download PDF"
+                        className="btn btn-primary"
                       >
-                        <Download size={14} />
+                        {downloadingPDF === invoice._id ? 'Downloading...' : 'Download'}
                       </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                      {invoice.status === 'pending' && (
+                        <button
+                          onClick={() => handleStatusUpdate(invoice._id, 'paid')}
+                          disabled={updatingStatus === invoice._id}
+                          className="btn btn-success"
+                        >
+                          {updatingStatus === invoice._id ? 'Updating...' : 'Mark Paid'}
+                        </button>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
 
