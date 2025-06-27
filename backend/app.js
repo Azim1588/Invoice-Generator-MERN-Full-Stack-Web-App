@@ -24,7 +24,8 @@ const corsOptions = {
   origin: [
     process.env.FRONTEND_URL || 'http://localhost:3000',
     'https://invoice-frontend.onrender.com',
-    'https://your-frontend-domain.onrender.com'
+    'https://your-frontend-domain.onrender.com',
+    'https://invoice-generator-frontend-gfx5.onrender.com'
   ],
   credentials: true,
   optionsSuccessStatus: 200
