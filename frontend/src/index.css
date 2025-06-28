@@ -2304,9 +2304,10 @@ input::placeholder, textarea::placeholder {
   }
 
   .modal-footer {
-    padding: 1rem;
-    flex-direction: column;
-    gap: 0.75rem;
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
   }
 
   .modal-footer .btn {
@@ -2643,25 +2644,6 @@ input::placeholder, textarea::placeholder {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
-}
-
-/* Desktop/Mobile Table Views */
-.desktop-table {
-  display: block;
-}
-
-.mobile-table {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .desktop-table {
-    display: none;
-  }
-
-  .mobile-table {
-    display: block;
-  }
 }
 
 /* Authentication Components */

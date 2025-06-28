@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Plus, Edit, Trash2, Eye } from 'lucide-react';
+import { Plus, Edit, Trash2 } from 'lucide-react';
 import { customerAPI } from '../services/api';
 
 function Customers() {
@@ -10,20 +10,16 @@ function Customers() {
   const [deleteId, setDeleteId] = useState(null);
 
   useEffect(() => {
-    console.log('👥 Customers: Component mounted, fetching customers...');
     fetchCustomers();
   }, []);
 
   const fetchCustomers = async () => {
     try {
-      setLoading(true);
-      console.log('👥 Customers: Fetching customers from API...');
       const response = await customerAPI.getAll();
-      console.log('👥 Customers: API response received:', response.data.data.length, 'customers');
-      setCustomers(response.data.data);
+      setCustomers(response.data.customers);
     } catch (err) {
-      console.error('👥 Customers: Error fetching customers:', err);
-      setError('Failed to load customers');
+      setError('Failed to fetch customers');
+      console.error('Fetch error:', err);
     } finally {
       setLoading(false);
     }
@@ -68,8 +64,7 @@ function Customers() {
         </div>
       ) : (
         <div className="card">
-          {/* Desktop Table View */}
-          <div className="table-container desktop-table">
+          <div className="table-container">
             <table className="table">
               <thead>
                 <tr>
@@ -104,13 +99,6 @@ function Customers() {
                     <td>{new Date(customer.createdAt).toLocaleDateString()}</td>
                     <td className="table-actions">
                       <Link 
-                        to={`/customers/${customer._id}`} 
-                        className="btn btn-secondary"
-                      >
-                        <Eye size={14} />
-                        View
-                      </Link>
-                      <Link 
                         to={`/customers/${customer._id}/edit`} 
                         className="btn btn-secondary"
                       >
@@ -129,71 +117,6 @@ function Customers() {
                 ))}
               </tbody>
             </table>
-          </div>
-
-          {/* Mobile Card View */}
-          <div className="mobile-table">
-            {customers.map((customer) => (
-              <div key={customer._id} className="mobile-card">
-                <div className="mobile-card-row">
-                  <span className="mobile-card-label">Name</span>
-                  <span className="mobile-card-value">{customer.name}</span>
-                </div>
-                <div className="mobile-card-row">
-                  <span className="mobile-card-label">Email</span>
-                  <span className="mobile-card-value">{customer.email}</span>
-                </div>
-                <div className="mobile-card-row">
-                  <span className="mobile-card-label">Phone</span>
-                  <span className="mobile-card-value">{customer.phone || '-'}</span>
-                </div>
-                <div className="mobile-card-row">
-                  <span className="mobile-card-label">Address</span>
-                  <span className="mobile-card-value">
-                    {customer.address ? (
-                      <div>
-                        <div>{customer.address.street}</div>
-                        <div style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
-                          {customer.address.city}, {customer.address.state} {customer.address.zipCode}
-                        </div>
-                      </div>
-                    ) : (
-                      '-'
-                    )}
-                  </span>
-                </div>
-                <div className="mobile-card-row">
-                  <span className="mobile-card-label">Created</span>
-                  <span className="mobile-card-value">{new Date(customer.createdAt).toLocaleDateString()}</span>
-                </div>
-                <div className="mobile-card-row">
-                  <span className="mobile-card-label">Actions</span>
-                  <div className="card-actions">
-                    <Link 
-                      to={`/customers/${customer._id}`} 
-                      className="btn btn-secondary"
-                    >
-                      <Eye size={14} />
-                      View
-                    </Link>
-                    <Link 
-                      to={`/customers/${customer._id}/edit`} 
-                      className="btn btn-secondary"
-                    >
-                      <Edit size={14} />
-                      Edit
-                    </Link>
-                    <button
-                      onClick={() => setDeleteId(customer._id)}
-                      className="btn btn-danger"
-                    >
-                      <Trash2 size={14} />
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       )}
