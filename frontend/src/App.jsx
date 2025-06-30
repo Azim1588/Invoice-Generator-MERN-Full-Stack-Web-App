@@ -20,6 +20,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import LandingPage from './components/LandingPage';
 import BusinessProfile from './pages/BusinessProfile';
+import EditCustomer from './pages/EditCustomer';
 
 // Separate component for the main app content
 function AppContent() {
@@ -168,6 +169,7 @@ function AppContent() {
               <Route path="/customers" element={<Customers />} />
               <Route path="/customers/create" element={<CreateCustomer />} />
               <Route path="/customers/:id" element={<CustomerDetail />} />
+              <Route path="/customers/:id/edit" element={<EditCustomer />} />
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/invoices/create" element={<CreateInvoice />} />
               <Route path="/invoices/:id" element={<InvoiceDetail />} />
