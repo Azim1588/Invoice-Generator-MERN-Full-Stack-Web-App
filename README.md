@@ -8,6 +8,14 @@ A modern, full-stack invoice generation application built with React, Node.js, a
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-blue)
 ![Render](https://img.shields.io/badge/Deployed%20on-Render-blue)
 
+## 🎬 Watch Demo
+
+**📺 [Watch Full Demo on YouTube](https://youtu.be/ZwGUpB6OsAs)**
+
+See the Invoice Generator Pro in action! This comprehensive demo walks through all features including user authentication, invoice creation, PDF generation, customer management, and more.
+
+[![Invoice Generator Pro Demo](https://img.shields.io/badge/YouTube-Watch%20Demo-red?style=for-the-badge&logo=youtube)](https://youtu.be/ZwGUpB6OsAs)
+
 ## ✨ Features
 
 - 🎨 **Beautiful Templates** - Professional invoice designs

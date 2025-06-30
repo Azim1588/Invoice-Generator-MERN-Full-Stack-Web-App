@@ -28,7 +28,6 @@ import {
 const LandingPage = () => {
   const [currentFeature, setCurrentFeature] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [showVideoModal, setShowVideoModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isDarkMode } = useTheme();
 
@@ -46,6 +45,10 @@ const LandingPage = () => {
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
+  };
+
+  const openDemoVideo = () => {
+    window.open('https://youtu.be/ZwGUpB6OsAs', '_blank');
   };
 
   const features = [
@@ -138,7 +141,7 @@ const LandingPage = () => {
                   <ArrowRight size={20} />
                 </Link>
                 <button 
-                  onClick={() => setShowVideoModal(true)}
+                  onClick={openDemoVideo}
                   className="btn btn-secondary btn-large"
                 >
                   <Play size={20} />
@@ -343,31 +346,6 @@ const LandingPage = () => {
           </div>
         </div>
       </footer>
-
-      {/* Video Modal */}
-      {showVideoModal && (
-        <div className="video-modal-overlay" onClick={() => setShowVideoModal(false)}>
-          <div className="video-modal" onClick={(e) => e.stopPropagation()}>
-            <button 
-              className="video-modal-close" 
-              onClick={() => setShowVideoModal(false)}
-            >
-              ×
-            </button>
-            <div className="video-container">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1"
-                title="Invoice Generator Demo"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
