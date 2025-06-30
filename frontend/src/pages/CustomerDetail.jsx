@@ -18,7 +18,7 @@ function CustomerDetail() {
   const fetchCustomer = async () => {
     try {
       const response = await customerAPI.getById(id);
-      setCustomer(response.data.customer);
+      setCustomer(response.data.data);
     } catch (err) {
       setError('Failed to fetch customer details');
       console.error('Fetch error:', err);
