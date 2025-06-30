@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Plus, Edit, Trash2 } from 'lucide-react';
+import { Plus, Edit, Trash2, Eye } from 'lucide-react';
 import { customerAPI } from '../services/api';
 
 function Customers() {
@@ -98,6 +98,13 @@ function Customers() {
                     </td>
                     <td>{new Date(customer.createdAt).toLocaleDateString()}</td>
                     <td className="table-actions">
+                      <Link 
+                        to={`/customers/${customer._id}`} 
+                        className="btn btn-secondary"
+                      >
+                        <Eye size={14} />
+                        View
+                      </Link>
                       <Link 
                         to={`/customers/${customer._id}/edit`} 
                         className="btn btn-secondary"

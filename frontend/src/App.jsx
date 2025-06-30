@@ -15,6 +15,7 @@ import InvoiceDetail from './pages/InvoiceDetail';
 import EditInvoice from './pages/EditInvoice';
 import CreateInvoice from './pages/CreateInvoice';
 import CreateCustomer from './pages/CreateCustomer';
+import CustomerDetail from './pages/CustomerDetail';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import LandingPage from './components/LandingPage';
@@ -166,6 +167,7 @@ function AppContent() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/customers" element={<Customers />} />
               <Route path="/customers/create" element={<CreateCustomer />} />
+              <Route path="/customers/:id" element={<CustomerDetail />} />
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/invoices/create" element={<CreateInvoice />} />
               <Route path="/invoices/:id" element={<InvoiceDetail />} />
